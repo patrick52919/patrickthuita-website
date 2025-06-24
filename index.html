@@ -5,7 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patrick Thuita | Mt. Kenya Tour Guide</title>
-  <style>
+  <style>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; }
     header { background: #2e8b57; color: white; padding: 2rem; text-align: center; }
     nav { background: #1e6f46; text-align: center; padding: 1rem; }
@@ -55,6 +67,15 @@
         <p>Have a unique experience in mind? Let’s tailor your Mt. Kenya adventure together.</p>
       </div>
     </section>
+<section id="gallery">
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <img src="lenana.jpg" alt="Point Lenana" />
+    <img src="summit.jpg" alt="At the summit" />
+    <img src="trail.jpg" alt="On the trail" />
+    <!-- Add more images as needed -->
+  </div>
+</section>
 
     <section id="about">
       <h2>About Patrick</h2>
