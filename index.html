@@ -126,6 +126,19 @@
         font-size: 0.9rem;
       }
     }
+    form {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -160,37 +173,30 @@
 
     <section id="tours" class="tours">
       <h2>Tour Packages</h2>
-
       <div class="tour">
         <h3>3-Day Lenana Summit Trek</h3>
         <p>Perfect for fit hikers looking for a quick summit. Includes guide, meals, park fees, and camping gear.</p>
       </div>
-
       <div class="tour">
         <h3>5-Day Chogoria Route Experience</h3>
         <p>Explore the most scenic route with lakes, cliffs, and wildlife. Great for photography lovers.</p>
       </div>
-
       <div class="tour">
         <h3>Kilimanjaro – Marangu Route (5 Days)</h3>
         <p>An affordable, popular route with hut accommodation. Great for beginners aiming for Uhuru Peak.</p>
       </div>
-
       <div class="tour">
         <h3>Kilimanjaro – Machame Route (7 Days)</h3>
         <p>A challenging, scenic trek through five ecological zones. Ideal for fit climbers seeking adventure.</p>
       </div>
-
       <div class="tour">
         <h3>Maasai Mara Safari (3 Days)</h3>
         <p>Witness the Big Five and the Great Migration in Kenya’s most famous reserve. Full-board game drive experience.</p>
       </div>
-
       <div class="tour">
         <h3>Samburu Cultural Safari (3 Days)</h3>
         <p>Discover rare northern wildlife and authentic Samburu culture in this unique semi-arid reserve.</p>
       </div>
-
       <div class="tour">
         <h3>Nairobi National Park Day Trip</h3>
         <p>Enjoy a full-day game drive just minutes from the city. Perfect for layovers or short stays.</p>
@@ -204,21 +210,26 @@
 
     <section id="contact" class="contact">
       <h2>Contact</h2>
-      <p><strong>Phone:</strong> +254711611020</p>
-      <p><strong>Email:</strong> <a href="mailto:pthuita52@gmail.com">pthuita52@gmail.com</a></p>
-      <p><strong>Location:</strong> Nairobi, Kenya</p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/patrickthuita">@patrickthuita</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/patrickthuita">patrickthuita</a></p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" id="email" required><br>
+
+        <label for="message">Message:</label><br>
+        <textarea name="message" id="message" rows="5" required></textarea><br>
+
+        <button type="submit" class="button">Send Message</button>
+      </form>
     </section>
   </div>
   <footer>
     <p>&copy; 2025 Patrick Thuita. All rights reserved.</p>
   </footer>
-
   <script>
     let slideIndex = 1;
     const slides = document.getElementsByClassName("slide");
-
     function showSlides(n) {
       if (n > slides.length) slideIndex = 1;
       if (n < 1) slideIndex = slides.length;
@@ -227,11 +238,9 @@
       }
       slides[slideIndex - 1].style.display = "block";
     }
-
     function plusSlides(n) {
       showSlides(slideIndex += n);
     }
-
     showSlides(slideIndex);
     setInterval(() => plusSlides(1), 5000);
   </script>
