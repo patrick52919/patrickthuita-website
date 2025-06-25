@@ -1,112 +1,210 @@
-patrickthuita-website-responsive.zip
+from zipfile import ZipFile
+import os
+import shutil
+
+# Set up directory for the website
+base_dir = "/mnt/data/patrickthuita-website-responsive"
+os.makedirs(base_dir, exist_ok=True)
+
+# HTML content with responsive improvements
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patrick Thuita | Mt. Kenya Tour Guide</title>
-  <style>.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .hero {
+      text-align: center;
+      padding: 2rem;
+      background: #eaeaea;
+    }
+    .highlight {
+      color: #27ae60;
+    }
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      background: #27ae60;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .tours, .about, .contact {
+      margin-top: 2rem;
+    }
+    .tour {
+      background: #fff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: #fff;
+      margin-top: 2rem;
+    }
+    .slideshow {
+      position: relative;
+      max-width: 100%;
+      margin: 2rem auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+    button.prev, button.next {
+      position: absolute;
+      top: 50%;
+      background: rgba(0,0,0,0.4);
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    button.prev { left: 10px; }
+    button.next { right: 10px; }
 
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #333; }
-    header { background: #2e8b57; color: white; padding: 2rem; text-align: center; }
-    nav { background: #1e6f46; text-align: center; padding: 1rem; }
-    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-    .container { padding: 2rem; max-width: 1000px; margin: auto; }
-    .hero { text-align: center; padding: 2rem 1rem; background: #e0f7ea; border-radius: 10px; }
-    .hero h1 { font-size: 2.5rem; }
-    .highlight { color: #2e8b57; font-weight: bold; }
-    .tours, .contact { margin-top: 3rem; }
-    .tour { background: white; border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    footer { text-align: center; padding: 2rem; background: #2e8b57; color: white; margin-top: 3rem; }
-    a.button { background: #2e8b57; color: white; padding: 0.8rem 1.2rem; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 1rem; }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+      .button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+      }
+      .tour {
+        font-size: 0.95rem;
+      }
+      button.prev, button.next {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Patrick Thuita</h1>
-    <p>Professional Mountaineer & Tour Guide | Mt. Kenya Specialist</p>
+    <h1>Patrick Thuita - Mt. Kenya Tour Guide</h1>
   </header>
-
-  <nav>
-    <a href="#tours">Tours</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
   <div class="container">
     <section class="hero">
       <h1>Explore Mt. Kenya with <span class="highlight">Patrick Thuita</span></h1>
       <p>With over 105 successful summits and 6 years of guiding experience, you're in expert hands.</p>
       <a href="#contact" class="button">Book Your Adventure</a>
     </section>
- <img src="IMG20201206105643.jpg" alt="Mount Kenya View" style="width:100%; margin-top: 2rem; border-radius: 10px;" />
-    <section id="tours" class="tours">
-      <h2>Mt. Kenya Tours</h2>
-      <div class="tour">
-        <h3>Point Lenana Trek (3-5 Days)</h3>
-        <p>An unforgettable journey to the third highest peak of Mt. Kenya. Perfect for beginners and seasoned hikers alike.</p>
-      </div>
-     
-      <div class="tour">
-        <h3>Sirimon-Chogoria Route (5-6 Days)</h3>
-        <p>Experience stunning landscapes, wildlife, and diverse ecosystems on this classic traverse.</p>
-      </div>
-      <div class="tour">
-        <h3>Customized Expeditions</h3>
-        <p>Have a unique experience in mind? Let’s tailor your Mt. Kenya adventure together.</p>
+
+    <section id="slideshow">
+      <h2>Mt. Kenya Moments</h2>
+      <div class="slideshow">
+        <img class="slide" src="mt-kenya.jpg" alt="Mt. Kenya">
+        <img class="slide" src="shipton-camp-2.jpg" alt="Shipton Camp 2">
+        <img class="slide" src="lake-michaelson-sunrise.jpg" alt="Lake Michaelson Sunrise">
+        <img class="slide" src="summit-photo.jpg" alt="Summit Photo">
+        <img class="slide" src="facing-batian.jpg" alt="Facing Batian">
+        <button class="prev" onclick="plusSlides(-1)">❮</button>
+        <button class="next" onclick="plusSlides(1)">❯</button>
       </div>
     </section>
-<section id="gallery">
- <section id="gallery">
-  <h2>Photo Gallery</h2>
-  <div class="gallery">
-    <figure>
-      <img src="facing batian.jpg" alt="facing batian." />
-      <figcaption>Point Lenana, sunrise summit</figcaption>
-    </figure>
-    <figure>
-      <img src="mt.kenya.jpg" alt=mt.kenya hike" />
-      <figcaption>Celebrating at the summit</figcaption>
-    </figure>
-    <figure>
-      <img src="summit photo.jpg" alt="summit view" />
-      <figcaption>view on top of lenana</figcaption>
-    </figure>
-  </div>
-</section>
 
-  </div>
-</section>
+    <section id="tours" class="tours">
+      <h2>Tour Packages</h2>
+      <div class="tour">
+        <h3>3-Day Lenana Summit Trek</h3>
+        <p>Perfect for fit hikers looking for a quick summit. Includes guide, meals, park fees, and camping gear.</p>
+      </div>
+      <div class="tour">
+        <h3>5-Day Chogoria Route Experience</h3>
+        <p>Explore the most scenic route with lakes, cliffs, and wildlife. Great for photography lovers.</p>
+      </div>
+      <div class="tour">
+        <h3>Kilimanjaro Extension</h3>
+        <p>Want more? Combine Mt. Kenya with Kilimanjaro for the ultimate East African adventure.</p>
+      </div>
+    </section>
 
-    <section id="about">
+    <section id="about" class="about">
       <h2>About Patrick</h2>
-      <p>Patrick Thuita is a Nairobi-based Wilderness First Responder, certified with the President's Award Silver Level. He has guided over 100 successful expeditions including Point Peter and Kilimanjaro. Known for safety, professionalism, and passion, Patrick brings unmatched energy and experience to every trek.</p>
+      <p>Patrick Thuita is a certified Wilderness First Responder with a Diploma in guiding and over 6 years of experience leading tours on Mt. Kenya. He has completed 105+ summits, including 4 on Kilimanjaro, and holds the President's Award Silver Level.</p>
     </section>
 
     <section id="contact" class="contact">
-      <h2>Contact & Booking</h2>
-      <p>📍 Nairobi, Kenya<br>
-         📞 +254 711 611 020<br>
-         📧 <a href="mailto:pthuita52@gmail.com">pthuita52@gmail.com</a><br>
-         🔗 <a href="https://www.linkedin.com/in/patrickthuita">LinkedIn</a> | <a href="https://www.instagram.com/patrickthuita">Instagram</a>
-      </p>
-      <a href="mailto:pthuita52@gmail.com" class="button">Send Booking Email</a>
+      <h2>Contact</h2>
+      <p><strong>Phone:</strong> +254711611020</p>
+      <p><strong>Email:</strong> <a href="mailto:pthuita52@gmail.com">pthuita52@gmail.com</a></p>
+      <p><strong>Location:</strong> Nairobi, Kenya</p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/patrickthuita">@patrickthuita</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/patrickthuita">patrickthuita</a></p>
     </section>
   </div>
-
   <footer>
-    <p>&copy; 2025 Patrick Thuita | Mt. Kenya Guide</p>
+    <p>&copy; 2025 Patrick Thuita. All rights reserved.</p>
   </footer>
+
+  <script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+      for (let s of slides) s.style.display = "none";
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 5000);
+    }
+
+    function plusSlides(n) {
+      slideIndex += n - 1;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      for (let s of slides) s.style.display = "none";
+      slides[slideIndex].style.display = "block";
+    }
+
+    showSlides();
+  </script>
 </body>
 </html>
+"""
+
+# Save HTML file
+html_path = os.path.join(base_dir, "index.html")
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+# Create ZIP file
+zip_path = "/mnt/data/patrickthuita-website-responsive.zip"
+with ZipFile(zip_path, "w") as zipf:
+    zipf.write(html_path, arcname="index.html")
+
+zip_path
