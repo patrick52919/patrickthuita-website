@@ -1,37 +1,148 @@
-<!DOCTYPE html>
+"<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patrick Thuita | Mt. Kenya Tour Guide</title>
-  <!-- This line includes the Font Awesome library for displaying social media icons. Make sure it stays here in the <head> section. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Form input styling */
-    input[type="date"] {
-      padding: 8px;
-      margin: 6px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mtkenya.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #f36f5f;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #f36f5f;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .gallery-item img {
       width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
     }
-    input[type="date"]:focus {
-      outline: none;
-      border-color: #f36f5f;
+    .caption {
+      text-align: center;
+      margin-top: 5px;
     }
-
-    /* Hover color and transition for social icons */
+    .tour {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f36f5f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .button:hover {
+      background-color: #d95445;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .lightbox:target img {
+      opacity: 1;
+      transform: scale(1);
+    }
     .social-links a {
       transition: color 0.3s ease;
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
     }
     .social-links a:hover {
-      color: #f36f5f; /* Soft coral tone on hover */
+      color: #f36f5f;
+    }
+    input[type="date"], input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form label {
+      font-weight: 600;
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .lightbox:target {
+      display: flex;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Patrick Thuita - Mt. Kenya Tour Guide</h1>
+    <h1>Explore Mt. Kenya with Patrick Thuita</h1>
+    <p>Over 105 summits guided. Your adventure begins here.</p>
+    <a href="#contact" class="button">Book Now</a>
+    <div class="social-links">
+      <a href="https://www.instagram.com/patrickthuita" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/patrickthuita" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
   </header>
   <nav>
     <a href="#gallery">Gallery</a>
@@ -40,145 +151,59 @@
     <a href="#contact">Contact</a>
   </nav>
   <div class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Explore Mt. Kenya with <span class="highlight">Patrick Thuita</span></h1>
-      <p>With over 105 successful summits and 6 years of guiding experience, you're in expert hands.</p>
-      <a href="#contact" class="button">Book Your Adventure</a>
-      <div class="social-links">
-        <a href="https://www.instagram.com/patrickthuita" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/patrickthuita" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </section>
-
-    <!-- Gallery Section -->
     <section id="gallery">
       <h2>Photo Gallery</h2>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="mt.kenya.jpg" alt="mt.kenya.jpg" onclick="openLightbox(this.src)"><div class="caption">Mt. Kenya</div></div>
-        <div class="gallery-item"><img src="shiptons camp.jpg" alt="shiptons camp.jpg" onclick="openLightbox(this.src)"><div class="caption">Shipton Camp</div></div>
-        <div class="gallery-item"><img src="lake-michaelson.jpg" alt="lake-michaelson.jpg" onclick="openLightbox(this.src)"><div class="caption">Lake Michaelson Sunrise</div></div>
-        <div class="gallery-item"><img src="on-trail-mt.kenya.jpg" alt="on-trail-mt.kenya.jpg" onclick="openLightbox(this.src)"><div class="caption">on trail mt.kenya</div></div>
-        <div class="gallery-item"><img src="facing batian.jpg" alt="facing batian.jpg" onclick="openLightbox(this.src)"><div class="caption">Facing Batian</div></div>
+        <div class="gallery-item"><a href="#img1"><img src="images/mtkenya.jpg" alt="Mt. Kenya"></a><div class="caption">Mt. Kenya</div></div>
+        <div class="gallery-item"><a href="#img2"><img src="images/shipton.jpg" alt="Shipton Camp"></a><div class="caption">Shipton Camp</div></div>
+        <div class="gallery-item"><a href="#img3"><img src="images/lake-michaelson.jpg" alt="Lake Michaelson"></a><div class="caption">Lake Michaelson Sunrise</div></div>
+        <div class="gallery-item"><a href="#img4"><img src="images/summit.jpg" alt="Summit Photo"></a><div class="caption">Summit Photo</div></div>
+        <div class="gallery-item"><a href="#img5"><img src="images/batian.jpg" alt="Facing Batian"></a><div class="caption">Facing Batian</div></div>
+      </div>
+
+      <div id="img1" class="lightbox"><a href="#gallery"><img src="images/mtkenya.jpg" alt="Mt. Kenya"></a></div>
+      <div id="img2" class="lightbox"><a href="#gallery"><img src="images/shipton.jpg" alt="Shipton Camp"></a></div>
+      <div id="img3" class="lightbox"><a href="#gallery"><img src="images/lake-michaelson.jpg" alt="Lake Michaelson"></a></div>
+      <div id="img4" class="lightbox"><a href="#gallery"><img src="images/summit.jpg" alt="Summit Photo"></a></div>
+      <div id="img5" class="lightbox"><a href="#gallery"><img src="images/batian.jpg" alt="Facing Batian"></a></div>
+    </section>
+    <section id="tours">
+      <h2>Featured Tours</h2>
+      <div class="tour">
+        <h3>Mt. Kenya Trek</h3>
+        <p>A challenging and scenic route to Point Lenana through Shipton's Camp.</p>
+        <a href="mt-kenya-itinerary.pdf" download class="button">Download Itinerary</a>
+      </div>
+      <div class="tour">
+        <h3>Kilimanjaro Expedition</h3>
+        <p>8-day trek via the Machame Route to Africa's highest summit.</p>
+        <a href="kilimanjaro-itinerary.pdf" download class="button">Download Itinerary</a>
+      </div>
+      <div class="tour">
+        <h3>Safari Adventure</h3>
+        <p>Explore Maasai Mara, Samburu, and Nairobi National Park in 4 days.</p>
+        <a href="safari-itinerary.pdf" download class="button">Download Itinerary</a>
       </div>
     </section>
-
-    <!-- Tours Section -->
-    <section id="tours">
-      <h2>Mt. Kenya & Safari Tours</h2>
-      
-<p><a href="mt-kenya-itinerary.pdf" download class="button">Download Mt. Kenya Itinerary (PDF)</a></p>
-</div>
-      
-<p><a href="kilimanjaro-itinerary.pdf" download class="button">Download Kilimanjaro Itinerary (PDF)</a></p>
-  <ul>
-    <li><strong>Day 1:</strong> Arrive in Moshi, pre-trek briefing</li>
-    <li><strong>Day 2:</strong> Start trek to Machame Camp (3000m)</li>
-    <li><strong>Day 3:</strong> Hike to Shira Camp (3840m)</li>
-    <li><strong>Day 4:</strong> Acclimatization trek via Lava Tower to Barranco Camp (3950m)</li>
-    <li><strong>Day 5:</strong> Climb to Karanga Camp (4035m)</li>
-    <li><strong>Day 6:</strong> Trek to Barafu Camp (4673m)</li>
-    <li><strong>Day 7:</strong> Midnight summit to Uhuru Peak (5895m), descend to Mweka Camp</li>
-    <li><strong>Day 8:</strong> Final descent and return to Moshi</li>
-  </ul>
-  <p><strong>Price:</strong> From $1,900 per person (includes park fees, meals, guides, and porters)</p>
-</div>
-      
-<p><a href="safari-itinerary.pdf" download class="button">Download Safari Itinerary (PDF)</a></p>
-  <ul>
-    <li><strong>Day 1:</strong> Drive to Maasai Mara, afternoon game drive</li>
-    <li><strong>Day 2:</strong> Full day in the Mara with picnic lunch and Big Five tracking</li>
-    <li><strong>Day 3:</strong> Game drive , cultural village visit</li>
-    <li><strong>Day 4:</strong>transfer to Nairobi, afternoon tour of Nairobi National Park</li>
-  </ul>
-  <p><strong>Price:</strong> From $950 per person (includes transport, accommodation, park fees)</p>
-</div>
-    
-<form action="https://formspree.io/f/maylqegb" method="POST" onsubmit="alert('Thank you! We’ll get back to you shortly with availability.');">
-  <input type="hidden" name="trip" value="Aberdare Range Hiking">
-  <label for="start-date">Start Date:</label>
-<input type="date" name="start-date" required>
-<label for="end-date">End Date:</label>
-<input type="date" name="end-date" required>
-  <button type="submit" class="button">Request Availability</button>
-</form>
-  <ul>
-    <li><strong>Day 1:</strong> Depart Nairobi, hike Karuru Falls Trail</li>
-    <li><strong>Day 2:</strong> Trek through moorlands, spot elephants and buffalo, overnight at campsite</li>
-    <li><strong>Day 3:</strong> Morning hike, return to Nairobi</li>
-  </ul>
-  <p><strong>Price:</strong> From $450 per person</p>
-  <p><a href="aberdare-itinerary.pdf" download class="button">Download Aberdare Itinerary (PDF)</a></p>
-</div>
-
-
-<form action="https://formspree.io/f/maylqegb" method="POST">
-  <input type="hidden" name="trip" value="Ol Pejeta Conservancy Safari">
-  <label for="dates">Preferred Dates:</label>
-  <input type="date" name="dates" required>
-  <button type="submit" class="button">Request Availability</button>
-</form>
-  <ul>
-    <li><strong>Day 1:</strong> Drive from Nairobi, afternoon game drive</li>
-    <li><strong>Day 2:</strong> Visit Sweetwaters Chimpanzee Sanctuary, full-day wildlife viewing</li>
-    <li><strong>Day 3:</strong> Morning safari, return to Nairobi</li>
-  </ul>
-  <p><strong>Price:</strong> From $780 per person</p>
-  <p><a href="olpejeta-itinerary.pdf" download class="button">Download Ol Pejeta Itinerary (PDF)</a></p>
-</div>
-
-
-<form action="https://formspree.io/f/maylqegb" method="POST">
-  <input type="hidden" name="trip" value="Lake Nakuru + Naivasha Weekend Trip">
-  <label for="dates">Preferred Dates:</label>
-  <input type="date" name="dates" required>
-  <button type="submit" class="button">Request Availability</button>
-</form>
-  <ul>
-    <li><strong>Day 1:</strong> Visit Lake Nakuru National Park, afternoon game drive</li>
-    <li><strong>Day 2:</strong> Travel to Naivasha, Crescent Island boat tour, return to Nairobi</li>
-  </ul>
-  <p><strong>Price:</strong> From $395 per person</p>
-  <p><a href="nakuru-naivasha-itinerary.pdf" download class="button">Download Trip Itinerary (PDF)</a></p>
-</div>
-
-
     <section id="about">
       <h2>About Patrick</h2>
-      <p>Patrick Thuita is an experienced wilderness first responder, certified with the President’s Award (Silver Level), and has guided over 100 successful climbs including Mt. Kenya and Kilimanjaro. With a passion for nature and people, Patrick ensures safety, adventure, and authenticity on every trek.</p>
+      <p>Patrick Thuita is a certified wilderness first responder with over 6 years of experience guiding treks on Mt. Kenya and Kilimanjaro. He has successfully led over 105 summits and ensures safety, adventure, and cultural authenticity.</p>
     </section>
-
-    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact</h2>
       <form action="https://formspree.io/f/maylqegb" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <label for="name">Name:</label>
+        <input type="text" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea name="message" rows="5" required></textarea>
         <button type="submit" class="button">Send Message</button>
       </form>
     </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Patrick Thuita. All Rights Reserved.</p>
-    </footer>
   </div>
-
-  <!-- Lightbox Overlay -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Expanded Image">
-  </div>
-
-  <!-- Lightbox Script -->
-  <script>
-    function openLightbox(src) {
-      document.getElementById("lightbox-img").src = src;
-      document.getElementById("lightbox").classList.add("active");
-    }
-    function closeLightbox() {
-      document.getElementById("lightbox").classList.remove("active");
-    }
-  </script>
+  <footer>
+    <p>&copy; 2025 Patrick Thuita. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
