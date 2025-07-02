@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patrick Thuita | Mt. Kenya Tour Guide</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -27,6 +30,7 @@
       gap: 1.5rem;
       background: #0f4c75;
       padding: 0.5rem 0;
+      flex-wrap: wrap;
     }
     nav a {
       color: #fff;
@@ -40,6 +44,9 @@
       padding: 2rem 1rem;
       max-width: 1000px;
       margin: auto;
+    }
+    section {
+      margin-top: 4rem;
     }
     .hero {
       text-align: center;
@@ -65,9 +72,6 @@
     .button:hover {
       background: #0f4c75;
     }
-    .tours, .about, .contact {
-      margin-top: 2rem;
-    }
     .tour {
       background: #fff;
       padding: 1.5rem;
@@ -86,45 +90,26 @@
       color: #fff;
       margin-top: 2rem;
     }
-    .slideshow {
-      position: relative;
-      max-width: 100%;
-      margin: 2rem auto;
-      border-radius: 10px;
-      overflow: hidden;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .slide {
-      display: none;
+    .gallery-item {
+      text-align: center;
+    }
+    .gallery-item img {
       width: 100%;
       border-radius: 10px;
-    }
-    button.prev, button.next {
-      position: absolute;
-      top: 50%;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
+      object-fit: cover;
+      height: 200px;
       cursor: pointer;
-      transform: translateY(-50%);
-      border-radius: 50%;
     }
-    button.prev { left: 10px; }
-    button.next { right: 10px; }
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-      .tour {
-        padding: 1rem;
-      }
-      .hero h1 {
-        font-size: 1.5rem;
-      }
-      .button {
-        font-size: 0.9rem;
-      }
+    .caption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #555;
     }
     form {
       background: #fff;
@@ -139,6 +124,41 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s ease;
+      z-index: 10000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .tour {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .button {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -146,36 +166,62 @@
     <h1>Patrick Thuita - Mt. Kenya Tour Guide</h1>
   </header>
   <nav>
-    <a href="#slideshow">Gallery</a>
+    <a href="#gallery">Gallery</a>
     <a href="#tours">Tours</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="container">
+
+    <!-- Hero Section -->
     <section class="hero">
       <h1>Explore Mt. Kenya with <span class="highlight">Patrick Thuita</span></h1>
       <p>With over 105 successful summits and 6 years of guiding experience, you're in expert hands.</p>
       <a href="#contact" class="button">Book Your Adventure</a>
     </section>
 
-    <section id="slideshow">
-      <h2 style="text-align:center">Mt. Kenya Moments</h2>
-      <div class="slideshow">
-        <img class="slide" src="mt-kenya.jpg" alt="Mt. Kenya">
-        <img class="slide" src="shipton-camp-2.jpg" alt="Shipton Camp 2">
-        <img class="slide" src="lake-michaelson-sunrise.jpg" alt="Lake Michaelson Sunrise">
-        <img class="slide" src="summit-photo.jpg" alt="Summit Photo">
-        <img class="slide" src="facing-batian.jpg" alt="Facing Batian">
-        <img class="slide" src="maasai-mara.jpg" alt="Maasai Mara Safari">
-        <img class="slide" src="samburu.jpg" alt="Samburu Experience">
-        <img class="slide" src="nairobi-park.jpg" alt="Nairobi National Park Day Trip">
-        <button class="prev" onclick="plusSlides(-1)">❮</button>
-        <button class="next" onclick="plusSlides(1)">❯</button>
+    <!-- Gallery Grid Section -->
+    <section id="gallery">
+      <h2 style="text-align:center">Gallery: Mt. Kenya Moments</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="mt-kenya.jpg" alt="Mt. Kenya">
+          <div class="caption">Mt. Kenya Peak</div>
+        </div>
+        <div class="gallery-item">
+          <img src="shipton-camp-2.jpg" alt="Shipton Camp 2">
+          <div class="caption">Shipton Camp 2</div>
+        </div>
+        <div class="gallery-item">
+          <img src="lake-michaelson-sunrise.jpg" alt="Lake Michaelson Sunrise">
+          <div class="caption">Sunrise at Lake Michaelson</div>
+        </div>
+        <div class="gallery-item">
+          <img src="summit-photo.jpg" alt="Summit Photo">
+          <div class="caption">Summit Achievement</div>
+        </div>
+        <div class="gallery-item">
+          <img src="facing-batian.jpg" alt="Facing Batian">
+          <div class="caption">Facing Batian Peak</div>
+        </div>
+        <div class="gallery-item">
+          <img src="maasai-mara.jpg" alt="Maasai Mara Safari">
+          <div class="caption">Maasai Mara Safari</div>
+        </div>
+        <div class="gallery-item">
+          <img src="samburu.jpg" alt="Samburu Experience">
+          <div class="caption">Samburu Cultural Tour</div>
+        </div>
+        <div class="gallery-item">
+          <img src="nairobi-park.jpg" alt="Nairobi National Park Day Trip">
+          <div class="caption">Nairobi National Park</div>
+        </div>
       </div>
     </section>
 
-    <section id="tours" class="tours">
-      <h2>Tour Packages</h2>
+    <!-- Tours Section -->
+    <section id="tours">
+      <h2>Tours & Trips</h2>
       <div class="tour">
         <h3>3-Day Lenana Summit Trek</h3>
         <p>This express trek via the Sirimon route is ideal for those with limited time but high stamina. Hike through forest, moorland, and alpine zones. Expect early alpine starts, stunning sunrise views from Point Lenana, and safe, guided descents. Includes permits, meals, and porter service.</p>
@@ -206,12 +252,14 @@
       </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- About Section -->
+    <section id="about">
       <h2>About Patrick</h2>
       <p>Patrick Thuita is a certified Wilderness First Responder with a Diploma in guiding and over 6 years of experience leading tours on Mt. Kenya. He has completed 105+ summits, including 4 on Kilimanjaro, and holds the President's Award Silver Level.</p>
     </section>
 
-    <section id="contact" class="contact">
+    <!-- Contact Section -->
+    <section id="contact">
       <h2>Contact</h2>
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <label for="name">Name:</label><br>
@@ -227,25 +275,27 @@
       </form>
     </section>
   </div>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Lightbox Image">
+  </div>
+
   <footer>
     <p>&copy; 2025 Patrick Thuita. All rights reserved.</p>
   </footer>
   <script>
-    let slideIndex = 1;
-    const slides = document.getElementsByClassName("slide");
-    function showSlides(n) {
-      if (n > slides.length) slideIndex = 1;
-      if (n < 1) slideIndex = slides.length;
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex - 1].style.display = "block";
-    }
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    showSlides(slideIndex);
-    setInterval(() => plusSlides(1), 5000);
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
   </script>
 </body>
 </html>
