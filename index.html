@@ -1,138 +1,59 @@
-"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patrick Thuita | Mt. Kenya Tour Guide</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Patrick Thuita</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/mtkenya.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    nav {
-      background-color: #222;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    nav a:hover {
-      color: #f36f5f;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-    h2 {
-      border-bottom: 2px solid #f36f5f;
-      display: inline-block;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-    }
-    .gallery-item img {
-      width: 100%;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .caption {
-      text-align: center;
-      margin-top: 5px;
-    }
-    .tour {
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #f36f5f;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .button:hover {
-      background-color: #d95445;
-    }
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    .lightbox:target img {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .social-links a {
-      transition: color 0.3s ease;
-      color: white;
-      margin: 0 10px;
-      font-size: 20px;
-    }
-    .social-links a:hover {
-      color: #f36f5f;
-    }
-    input[type="date"], input[type="text"], input[type="email"], textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 6px 0 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    form label {
-      font-weight: 600;
-    }
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .lightbox:target {
-      display: flex;
-    }
-  </style>
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header>
+    <h1>Gallery</h1>
+    <a href="../index.html" class="back-link">&larr; Back to Home</a>
+  </header>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <figure>
+        <a href="#img1"><img src="mtkenya1.jpg" alt="Summit View"></a>
+        <figcaption class="caption">Summit View</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item">
+      <figure>
+        <a href="#img2"><img src="shiptoncamp.jpg" alt="Shipton Camp"></a>
+        <figcaption class="caption">Shipton Camp</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item">
+      <figure>
+        <a href="#img3"><img src="lakemichaelson.jpg" alt="Lake Michaelson"></a>
+        <figcaption class="caption">Lake Michaelson at Sunrise</figcaption>
+      </figure>
+    </div>
+    <div class="gallery-item">
+      <figure>
+        <a href="#img4"><img src="facingbatian.jpg" alt="Facing Batian"></a>
+        <figcaption class="caption">Facing Batian Peak</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div id="img1" class="lightbox" role="dialog" aria-modal="true">
+    <a href="#"><img src="mtkenya1.jpg" alt="Summit View"></a>
+  </div>
+  <div id="img2" class="lightbox" role="dialog" aria-modal="true">
+    <a href="#"><img src="shiptoncamp.jpg" alt="Shipton Camp"></a>
+  </div>
+  <div id="img3" class="lightbox" role="dialog" aria-modal="true">
+    <a href="#"><img src="lakemichaelson.jpg" alt="Lake Michaelson"></a>
+  </div>
+  <div id="img4" class="lightbox" role="dialog" aria-modal="true">
+    <a href="#"><img src="facingbatian.jpg" alt="Facing Batian"></a>
+  </div>
+</body>
+</html>
 </head>
 <body>
   <header>
