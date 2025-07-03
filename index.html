@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Patrick Thuita</title>
+  <link rel="stylesheet" href="gallery.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+  <header class="sticky">
+    <h1>Explore Mt. Kenya with Patrick Thuita</h1>
+    <p>Over 105 summits guided. Your adventure begins here.</p>
+    <a href="#contact" class="button">Book Now</a>
+    <div class="social-links">
+      <a href="https://www.instagram.com/patrickthuita" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/patrickthuita" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#tours">Tours</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <section id="gallery">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <picture>
+            <source srcset="facing-batian.webp" type="image/webp">
+            <img src="facing batian.jpg" alt="facing batian.jpg" loading="lazy">
+          </picture>
+          <div class="caption">Facing Batian</div>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="shipton-camp.webp" type="image/webp">
+            <img src="shiptons camp.jpg" alt="shiptons camp.jpg" loading="lazy">
+          </picture>
+          <div class="caption">Shipton Camp</div>
+        </div>
+         <div class="gallery-item">
+          <picture>
+            <source srcset="sunrise-lake-michaelson.webp" type="image/webp">
+            <img src="sunrise lake michaelson.jpg" alt="sunrise lake michaelson.jpg" loading="lazy">
+          </picture>
+          <div class="caption">Lake Michaelson Sunrise</div>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="shipton camp 2.webp" type="image/webp">
+            <img src="shiptons camp 2.jpg" alt="shiptons camp 2.jpg" loading="lazy">
+          </picture>
+          <div class="caption">shipton camp 2</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tours">
+      <h2>Featured Tours</h2>
+      <div class="tour">
+        <h3>Mt. Kenya Trek</h3>
+        <p>A challenging and scenic route to Point Lenana through Shipton's Camp.</p>
+        <a href="SIRIMON-CHOGORIA-ROUTE.pdf" download class="button">Download Itinerary</a>
+      </div>
+      <div class="tour">
+        <h3>Kilimanjaro Expedition</h3>
+        <p>8-day trek via the Machame Route to Africa's highest summit.</p>
+        <a href="MACHAME ROUTE MT.KILIMANJARO.pdf" download class="button">Download Itinerary</a>
+      </div>
+      <div class="tour">
+        <h3>Mt.Kenya treks </h3>
+        <p>sirimon-naromoru route in 4 days.</p>
+        <a href="SIRIMON-NAROMORU-ROUTE.pdf" download class="button">Download Itinerary</a>
+      </div>
+       </section>
+
+    <section id="about">
+      <h2>About Patrick</h2>
+      <p>Patrick Thuita is a certified wilderness first responder with over 6 years of experience guiding treks on Mt. Kenya and Kilimanjaro. He has successfully led over 105 summits and ensures safety, adventure, and cultural authenticity.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/maylqegb" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required />
+        <label for="email">Email:</label>
+        <input type="email" name="email" required />
+        <label for="message">Message:</label>
+        <textarea name="message" rows="5" required></textarea>
+        <button type="submit" class="button">Send Message</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Patrick Thuita. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
 
