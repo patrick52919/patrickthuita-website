@@ -33,43 +33,45 @@
       </ul>
     </nav>
   </div>
+
   <div class="container">
+    <!-- ✅ REPLACED GALLERY SECTION BELOW ✅ -->
     <section id="gallery">
       <h2>Photo Gallery</h2>
       <div class="gallery-grid">
-    <div class="gallery-item">
-      <picture>
-        <source srcset="facing-batian.webp" type="image/webp">
-        <img src="facing-batian.jpg" alt="Facing Batian" loading="lazy">
-      </picture>
-      <div class="caption">Facing Batian</div>
-    </div>
-    <div class="gallery-item">
-      <picture>
-        <source srcset="shipton-camp.webp" type="image/webp">
-        <img src="shipton camp.jpg" alt="Shipton Camp" loading="lazy">
-      </picture>
-      <div class="caption">Shipton Camp</div>
-    </div>
-    <div class="gallery-item">
-      <picture>
-        <source srcset="sunrise-lake-michaelson.webp" type="image/webp">
-        <img src="sunrise-lake-michaelson.jpg" alt="Sunrise at Lake Michaelson" loading="lazy">
-      </picture>
-      <div class="caption">Lake Michaelson Sunrise</div>
-    </div>
-        <div class="gallery-item"><a href="#img1"><img src="facing-batian.webp" alt="facing-batian.webp"></a><div class="caption">Facing Batian</div></div>
-        <div class="gallery-item"><a href="#img2"><img src="shipton-camp.webp" alt="shipton-camp.webp"></a><div class="caption">Shipton Camp</div></div>
-        <div class="gallery-item"><a href="#img3"><img src="sunrise-lake-michaelson.webp" alt="sunrise-lake-michaelson.webp"></a><div class="caption">Lake Michaelson Sunrise</div></div>
-        <div class="gallery-item"><a href="#img4"><img src="summit photo.jpg" alt="Summit Photo"></a><div class="caption">Summit Photo</div></div>
-        <div class="gallery-item"><a href="#img5"><img src="on-trail-mt.kenya.jpg" alt="On Trail Mt. Kenya"></a><div class="caption">On Trail Mt. Kenya</div></div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="compressed_images/mt.kenya.webp" type="image/webp">
+            <img src="compressed_images/mt.kenya.webp" alt="Mt. Kenya" loading="lazy">
+          </picture>
+          <div class="caption">Mt. Kenya</div>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="compressed_images/nairobi-national-park.webp" type="image/webp">
+            <img src="compressed_images/nairobi-national-park.webp" alt="Nairobi National Park" loading="lazy">
+          </picture>
+          <div class="caption">Nairobi National Park</div>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="compressed_images/kilimanjaro.webp" type="image/webp">
+            <img src="compressed_images/kilimanjaro.webp" alt="Kilimanjaro" loading="lazy">
+          </picture>
+          <div class="caption">Kilimanjaro</div>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="compressed_images/on-trail-mt.kenya.webp" type="image/webp">
+            <img src="compressed_images/on-trail-mt.kenya.webp" alt="On Trail Mt. Kenya" loading="lazy">
+          </picture>
+          <div class="caption">On Trail Mt. Kenya</div>
+        </div>
       </div>
-      <div id="img1" class="lightbox"><a href="#gallery"><img src="facing batian.jpg" alt="Facing Batian"></a></div>
-      <div id="img2" class="lightbox"><a href="#gallery"><img src="shiptons camp.jpg" alt="Shipton Camp"></a></div>
-      <div id="img3" class="lightbox"><a href="#gallery"><img src="sunrise lake michaelson.jpg" alt="Lake Michaelson"></a></div>
-      <div id="img4" class="lightbox"><a href="#gallery"><img src="summit photo.jpg" alt="Summit Photo"></a></div>
-      <div id="img5" class="lightbox"><a href="#gallery"><img src="on-trail-mt.kenya.jpg" alt="On Trail Mt. Kenya"></a></div>
     </section>
+    <!-- ✅ END OF GALLERY SECTION ✅ -->
+
+    <!-- Remaining Sections (No Change) -->
     <section id="tours">
       <h2>Featured Tours</h2>
       <div class="tour">
@@ -112,9 +114,11 @@
       </form>
     </section>
   </div>
+
   <footer>
     <p>&copy; 2025 Patrick Thuita. All Rights Reserved.</p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
     flatpickr("#date", {
